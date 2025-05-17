@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Program_list = new System.Windows.Forms.DataGridView();
             this.Info_list = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Program_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info_list)).BeginInit();
             this.SuspendLayout();
@@ -106,11 +107,21 @@
             this.Info_list.TabIndex = 6;
             this.Info_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Info_list_CellContentClick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(425, 327);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Info_list);
             this.Controls.Add(this.Program_list);
             this.Controls.Add(this.label1);
@@ -134,6 +145,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView Program_list;
         private System.Windows.Forms.DataGridView Info_list;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -23,9 +23,19 @@ namespace ParentsKiller_Form
 
         public List<Programs> programs = new List<Programs>
         {
-            new Programs{name = "GTA", way_result = "C:|asdasd.exe", times = 4},
-            new Programs{name = "DOTA 3", way_result = "C:|hui.exe", times = 17}
+            new Programs{name = "GTA", way_result = "asdasd.exe", times = 4},
+            new Programs{name = "DOTA 3", way_result = "hui.exe", times = 17}
         };
+
+        ProcessTracker processTracker = new ProcessTracker();
+
+        public void Track_all()
+        {
+            for (int i = 0; i < programs.Count(); i++)
+            {
+                processTracker.AddTrackedProcess(programs[i].way_result);
+            }
+        }
   
         public Form1()
         {
@@ -42,6 +52,10 @@ namespace ParentsKiller_Form
             this.Text = "ParentsControl UltimateKiller";
 
             Program_list.DataSource = programs; // отображать сразу ДБ
+
+            Track_all();
+
+            tracker.StartTracking();
 
             //===========================
             //Кароче,якщо нада буде,то в лівому стовпчику можна зробить топ прог,по к-сті заходів
@@ -87,9 +101,11 @@ namespace ParentsKiller_Form
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             Form2 secondForm = new Form2();
+
+            
             
             DialogResult result = secondForm.ShowDialog();//Модальне вікно(коли воно відкрите,то основне вікно афк)
             
@@ -101,8 +117,14 @@ namespace ParentsKiller_Form
                 if (name != "" && way != "")
                 {
                     programs.Add(new Programs { name = name, way_result = way });
+
+                    processTracker.AddTrackedProcess(programs[programs.Count()-1].way_result);
+                    label2.Text = programs[programs.Count() - 1].way_result;
+
                     Program_list.DataSource = null;
                     Program_list.DataSource = programs;
+
+                    
                 }
                 else
                 {
@@ -135,9 +157,19 @@ namespace ParentsKiller_Form
         {
             if (programs.Count() != 0)// провєрка на дібіла
             {
+                Form3 third_form = new Form3();
+                DialogResult delete_result = third_form.ShowDialog();
+
+                string delete = third_form.delete_way;
+
+                tracker.RemoveTrackedProcess(delete);
+
                 programs.Remove(programs[0]); //удалить перший слот
+
                 Program_list.DataSource = null; // обновить список,так нада
                 Program_list.DataSource = programs;
+
+                
             }
             else
             {
@@ -174,9 +206,9 @@ namespace ParentsKiller_Form
 
         public class ProcessTracker
         {
-            private List<string> trackedProcesses = new List<string>();  // Список процесів, які потрібно відстежувати
-            private Thread trackingThread;
-            private bool isRunning = false;
+            public List<string> trackedProcesses = new List<string>();  // Список процесів, які потрібно відстежувати
+            public Thread trackingThread;
+            public bool isRunning = false;
             public event EventHandler<ProcessEventArgs> ProcessStarted;
             public event EventHandler<ProcessEventArgs> ProcessStopped;
 

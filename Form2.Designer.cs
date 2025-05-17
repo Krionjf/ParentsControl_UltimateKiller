@@ -38,9 +38,9 @@
             // 
             // way_text
             // 
-            this.way_text.Location = new System.Drawing.Point(142, 38);
+            this.way_text.Location = new System.Drawing.Point(171, 38);
             this.way_text.Name = "way_text";
-            this.way_text.Size = new System.Drawing.Size(249, 20);
+            this.way_text.Size = new System.Drawing.Size(220, 20);
             this.way_text.TabIndex = 0;
             // 
             // name_text
@@ -91,9 +91,9 @@
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(20, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 19);
+            this.label2.Size = new System.Drawing.Size(129, 19);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Шлях до .ехе";
+            this.label2.Text = "Назва файлу .ехе";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form2
