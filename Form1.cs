@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +18,8 @@ namespace ParentsKiller_Form
     public partial class Form1 : Form
     {
         private Image backgroundImage;
+
+        private ProcessTracker tracker = new ProcessTracker();
 
         public List<Programs> programs = new List<Programs>
         {
@@ -167,7 +171,132 @@ namespace ParentsKiller_Form
 
     }
 
-}
+
+        public class ProcessTracker
+        {
+            private List<string> trackedProcesses = new List<string>();  // Список процесів, які потрібно відстежувати
+            private Thread trackingThread;
+            private bool isRunning = false;
+            public event EventHandler<ProcessEventArgs> ProcessStarted;
+            public event EventHandler<ProcessEventArgs> ProcessStopped;
+
+            public ProcessTracker() { }
+
+            // Додає назву процесу (без розширення .exe) до списку відстежуваних
+            public void AddTrackedProcess(string processName)
+            {
+                if (!trackedProcesses.Contains(processName))
+                {
+                    trackedProcesses.Add(processName);
+                }
+            }
+
+            // Видаляє назву процесу зі списку відстежуваних
+            public void RemoveTrackedProcess(string processName)
+            {
+                trackedProcesses.Remove(processName);
+            }
+
+            // Запускає відстеження процесів
+            public void StartTracking()
+            {
+                if (!isRunning)
+                {
+                    isRunning = true;
+                    trackingThread = new Thread(TrackProcesses);
+                    trackingThread.IsBackground = true; // Важливо!  Щоб програма завершувалась, навіть якщо цей потік працює
+                    trackingThread.Start();
+                }
+            }
+
+            // Зупиняє відстеження процесів
+            public void StopTracking()
+            {
+                isRunning = false;
+                if (trackingThread != null && trackingThread.IsAlive)
+                {
+                    trackingThread.Join(); // Дочекатися завершення потоку
+                }
+            }
+
+            private void TrackProcesses()
+            {
+                List<string> currentlyRunning = new List<string>();
+
+                while (isRunning)
+                {
+                    Process[] processes = Process.GetProcesses();
+                    List<string> newRunning = new List<string>();
+
+                    foreach (Process process in processes)
+                    {
+                        try
+                        {
+                            // Важливо!  Перевіряємо, чи process.ProcessName є NULL або порожнім, щоб уникнути винятків.
+                            if (!string.IsNullOrEmpty(process.ProcessName) && trackedProcesses.Contains(process.ProcessName))
+                            {
+                                newRunning.Add(process.ProcessName);
+
+                                // Якщо процес щойно запустився
+                            if (!currentlyRunning.Contains(process.ProcessName))
+                                {
+                                    OnProcessStarted(process.ProcessName, process.Id);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Обробка винятків, пов'язаних з доступом до інформації про процес.
+                            // Наприклад, недостатньо прав.
+                            Console.WriteLine($"Error accessing process {process.ProcessName}: {ex.Message}");
+                        }
+                    }
+
+                    // Перевіряємо, які процеси зупинилися
+                    foreach (string processName in currentlyRunning.Except(newRunning))
+                    {
+                        OnProcessStopped(processName);
+                    }
+
+                    currentlyRunning = newRunning; // Оновлюємо список запущених процесів
+                    Thread.Sleep(1000); // Перевіряємо кожну секунду
+                }
+            }
+
+            // Метод для виклику події ProcessStarted
+            protected virtual void OnProcessStarted(string processName, int processId)
+            {
+                ProcessStarted?.Invoke(this, new ProcessEventArgs(processName, processId));
+            }
+
+            // Метод для виклику події ProcessStopped
+            protected virtual void OnProcessStopped(string processName)
+            {
+                ProcessStopped?.Invoke(this, new ProcessEventArgs(processName));
+            }
+        }
+
+        // Клас для передачі інформації про процес з подією
+        public class ProcessEventArgs : EventArgs
+        {
+            public string ProcessName { get; }
+            public int ProcessId { get; }
+
+            public ProcessEventArgs(string processName, int processId)
+            {
+                ProcessName = processName;
+                ProcessId = processId;
+            }
+
+            public ProcessEventArgs(string processName)
+            {
+                ProcessName = processName;
+                ProcessId = -1;  // Вказуємо, що ID невідомий
+            }
+        }
+    }
+
+
 
 
 
