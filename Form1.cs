@@ -26,7 +26,7 @@ namespace ParentsKiller_Form
         public Form1()
         {
             InitializeComponent();
-            backgroundImage = Image.FromFile(@"D:\thumb-1920-853895.png"); // Загрузить заднік 
+            backgroundImage = Image.FromFile("thumb-1920-853895.png"); // Загрузить заднік 
             this.DoubleBuffered = true; // щоб не мерехтіло
             BackColor = Color.Gray;
             this.Text = "ParentsControl UltimateKiller";

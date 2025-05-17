@@ -18,7 +18,7 @@ namespace ParentsKiller_Form
         public Form2()
         {
             InitializeComponent();
-            backgroundImage2 = Image.FromFile(@"D:\images (2).png"); // Загрузить заднік 
+            backgroundImage2 = Image.FromFile("images (2).png"); // Загрузить заднік 
             this.DoubleBuffered = true; //Щоб не мігало
             BackColor = Color.Gray;
             this.Text = "";
