@@ -28,59 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Program_list = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Program_list)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // Add
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(474, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Додати ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Add.BackColor = System.Drawing.Color.White;
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Add.ForeColor = System.Drawing.Color.Black;
+            this.Add.Location = new System.Drawing.Point(522, 387);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(201, 50);
+            this.Add.TabIndex = 0;
+            this.Add.Text = "Додати ";
+            this.Add.UseVisualStyleBackColor = false;
+            this.Add.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // Delete
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(268, 388);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 49);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Видалити";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Delete.BackColor = System.Drawing.Color.White;
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Delete.Location = new System.Drawing.Point(268, 388);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(200, 49);
+            this.Delete.TabIndex = 1;
+            this.Delete.Text = "Видалити";
+            this.Delete.UseVisualStyleBackColor = false;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // listView1
+            // Exit
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(398, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.OwnerDraw = true;
-            this.listView1.Size = new System.Drawing.Size(211, 252);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(12, 389);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 49);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Вийти";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Exit.BackColor = System.Drawing.Color.White;
+            this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exit.Location = new System.Drawing.Point(12, 389);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(200, 49);
+            this.Exit.TabIndex = 3;
+            this.Exit.Text = "Вийти";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -92,18 +83,29 @@
             this.label1.TabIndex = 4;
             this.label1.Click += new System.EventHandler(this.result_Click);
             // 
+            // Program_list
+            // 
+            this.Program_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Program_list.Location = new System.Drawing.Point(175, 0);
+            this.Program_list.Name = "Program_list";
+            this.Program_list.ReadOnly = true;
+            this.Program_list.Size = new System.Drawing.Size(627, 290);
+            this.Program_list.TabIndex = 5;
+            this.Program_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Program_list);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.Add);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.Program_list)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,11 +113,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView Program_list;
     }
 }
 
