@@ -18,10 +18,17 @@ namespace ParentsKiller_Form
         public Form2()
         {
             InitializeComponent();
+
             backgroundImage2 = Image.FromFile("images (2).png"); // Загрузить заднік 
             this.DoubleBuffered = true; //Щоб не мігало
+
             BackColor = Color.Gray;
-            this.Text = "";
+
+            this.Text = ""; //назву убираєм
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // робим розмір окна статичним
+            this.MaximizeBox = false;
+            //this.ControlBox = false;    // Приховуємо всі кнопки керування (вірус жоска)
         }
         protected override void OnPaint(PaintEventArgs e)
         {
