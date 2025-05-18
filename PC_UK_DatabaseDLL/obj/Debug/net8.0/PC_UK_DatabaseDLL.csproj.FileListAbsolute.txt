@@ -1,0 +1,15 @@
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\bin\Debug\net8.0\PC_UK_DatabaseDLL.deps.json
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\bin\Debug\net8.0\PC_UK_DatabaseDLL.runtimeconfig.json
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\bin\Debug\net8.0\PC_UK_DatabaseDLL.dll
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\bin\Debug\net8.0\PC_UK_DatabaseDLL.pdb
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.csproj.AssemblyReference.cache
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.AssemblyInfoInputs.cache
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.AssemblyInfo.cs
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.csproj.CoreCompileInputs.cache
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.sourcelink.json
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.dll
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\refint\PC_UK_DatabaseDLL.dll
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.pdb
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\PC_UK_DatabaseDLL.genruntimeconfig.cache
+C:\Users\kriobn\Source\Repos\ParentsControl_UltimateKiller\PC_UK_DatabaseDLL\obj\Debug\net8.0\ref\PC_UK_DatabaseDLL.dll
