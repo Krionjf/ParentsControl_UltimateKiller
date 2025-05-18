@@ -1,0 +1,25 @@
+# Ігнорування .vs (налаштування Visual Studio)
+.vs/
+
+# Особисті файли користувача
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Тимчасові або кеш-файли
+*.log
+*.cache
+*.pdb
+*.dbmdl
+
+# Папки, які зазвичай ігноруються, але ми НЕ ігноруємо bin і obj тут:
+# bin/
+# obj/
+
+# Rider IDE / JetBrains
+.idea/
+
+# MacOS / Windows системні файли
+.DS_Store
+Thumbs.db

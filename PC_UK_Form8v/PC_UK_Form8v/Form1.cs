@@ -86,30 +86,37 @@ namespace PC_UK_Form8v
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 secondForm = new Form2();
+            Form2 secondForm = new Form2(this); // Це получається ми створюємо якби фрагмент другої форми і this вказує на того хто запрашує команди
 
-            DialogResult result = secondForm.ShowDialog();//Модальне вікно(коли воно відкрите,то основне вікно афк)
-
-            if (result == DialogResult.OK)//перевірка чи запустилось вікно
-            {
-
-                string path = secondForm.path_result; // бере інформацію з іншого вікна і передає цьому
-                string name = secondForm.name_result;
-
-                if (db_t.DB_AddData(name, path))
-                {
-                    RefreshGrid();
-                    MessageBox1.MessageBox(IntPtr.Zero, $"{name} Успішно доданий до БД", "Success", 0); //повідомлення успіху
-                }
-                else
-                {
-                    MessageBox1.MessageBox(IntPtr.Zero, "Така програма вже існує", "Err_AlrExist", 0); //Error message
-                }
-            }
+            secondForm.ShowDialog(); // в данному випадку саме ця форма просить відкрити другу,
+                                     // і тим самим завдяки деяким параметрам в другій формі можна (узагальнюючи)
+                                     // можна впливати з на першу форму через другу
+                                     // (використовувати клас який змінює першу форму в данному випадку)
+                                     
 
 
+            //DialogResult result = secondForm.ShowDialog();//Модальне вікно(коли воно відкрите,то основне вікно афк)
 
-            secondForm.Dispose(); // Закриваємо
+            //if (result == DialogResult.OK)//перевірка чи запустилось вікно
+            //{
+
+            //    string path = secondForm.path_result; // бере інформацію з іншого вікна і передає цьому
+            //    string name = secondForm.name_result;
+
+            //    if (db_t.DB_AddData(name, path))
+            //    {
+            //        RefreshGrid();
+            //        MessageBox1.MessageBox(IntPtr.Zero, $"{name} Успішно доданий до БД", "Success", 0); //повідомлення успіху
+            //    }
+            //    else
+            //    {
+            //        MessageBox1.MessageBox(IntPtr.Zero, "Така програма вже існує", "Err_AlrExist", 0); //Error message
+            //    }
+            //}
+
+
+
+            //secondForm.Dispose(); // Закриваємо
 
         }
 
